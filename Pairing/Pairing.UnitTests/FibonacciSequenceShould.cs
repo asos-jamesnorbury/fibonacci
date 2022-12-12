@@ -1,3 +1,5 @@
+using Moq;
+using Pairing.Logging;
 using Xunit;
 
 namespace Pairing.UnitTests;
@@ -13,10 +15,26 @@ public class FibonacciSequenceShould
     [InlineData(6, 8)]
     public void ReturnNthNumber_GivenPositiveInput(int nthNumber, int expectedResult)
     {
-        var fib = new FibonacciSequence();
+        // Assemble
+        var mockLogger = new Mock<ILogger>();
+        var fib = new FibonacciSequence(mockLogger.Object);
 
+        // Act
         var actualResult = fib.Find(nthNumber);
 
+        // Assert
         Assert.Equal(expectedResult, actualResult);
+    }
+
+    [Fact]
+    public void LogInput_GivenPositiveInput()
+    {
+        // Assemble
+        var mockLogger = new Mock<ILogger>();
+
+        // Act
+        var fib = new FibonacciSequence(mockLogger.Object);
+
+        // Assert
     }
 }

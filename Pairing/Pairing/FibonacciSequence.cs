@@ -1,11 +1,15 @@
 ﻿using System;
+using Pairing.Logging;
 
 namespace Pairing;
 
 public class FibonacciSequence
 {
-    public FibonacciSequence()
+    private readonly ILogger _logger;
+
+    public FibonacciSequence(ILogger logger)
     {
+        _logger = logger;
     }
 
     public int Find(int nthNumber)
