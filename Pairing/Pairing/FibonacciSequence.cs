@@ -1,24 +1,10 @@
-﻿using System;
-using Pairing.Logging;
-
-namespace Pairing;
+﻿namespace Pairing;
 
 public class FibonacciSequence
 {
-    private readonly ILogger _logger;
-
-    public FibonacciSequence(ILogger logger)
-    {
-        _logger = logger;
-    }
-
     public int Find(int nthNumber)
     {
-        Console.WriteLine($"Finding fibonacci number: {nthNumber}");
-
         var result = CalculateNumber(nthNumber);
-
-        Console.WriteLine($"Result: {result}");
 
         return result;
     }
